@@ -1,11 +1,17 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import Container from '../../components/common/Container';
+import Input from '../../components/common/Input';
 
 const Login = () => {
+  const [value, onChangeText] = React.useState('useless placeholder');
   return (
-    <View>
-      <Text>Hi from Login</Text>
-    </View>
+    <Container style={{padding: 50}}>
+      <Input
+        label="Username"
+        onChangeText={text => onChangeText(text)}
+        value={value}
+      />
+    </Container>
   );
 };
 
