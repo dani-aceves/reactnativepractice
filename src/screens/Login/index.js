@@ -6,6 +6,7 @@ import {Text} from 'react-native';
 const Login = () => {
   const [value, onChangeText] = React.useState('');
   return (
+    // eslint-disable-next-line react-native/no-inline-styles
     <Container style={{padding: 50}}>
       <Input
         label="Username"
@@ -13,7 +14,6 @@ const Login = () => {
         value={value}
         iconPosition="right"
         // icon={<Text>HELLO</Text>}
-        error={'This field is required'}
       />
       <Input
         label="Password"

@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {View, TextInput, Text} from 'react-native';
 import styles from './styles';
@@ -11,6 +12,7 @@ const Input = ({
   icon,
   iconPosition,
   error,
+  ...props
 }) => {
   const [focused, setFocused] = useState(false);
   const getFlexDirection = () => {
@@ -38,6 +40,7 @@ const Input = ({
       <View
         style={[
           styles.wrapper,
+          {alignItems: icon ? 'center' : 'baseline'},
           {flexDirection: getFlexDirection(), borderColor: getBorderColor()},
         ]}>
         <View>{icon && icon}</View>
@@ -51,6 +54,7 @@ const Input = ({
           onBlur={() => {
             setFocused(false);
           }}
+          {...props}
         />
       </View>
       {error && <Text style={styles.error}>{error}</Text>}

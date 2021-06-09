@@ -7,7 +7,6 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderRadius: 6,
     paddingHorizontal: 5,
-    alignItems: 'center',
     marginTop: 5,
   },
   inputContainer: {
@@ -15,6 +14,7 @@ export default StyleSheet.create({
   },
   textInput: {
     flex: 1,
+    width: '100%',
   },
   error: {
     color: colors.danger,
