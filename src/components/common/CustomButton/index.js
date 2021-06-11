@@ -4,7 +4,15 @@ import {View, ActivityIndicator, Text, TouchableOpacity} from 'react-native';
 import styles from './styles';
 import colors from '../../../assets/theme/colors';
 
-const Input = ({title, secondary, primary, danger, loading, disabled}) => {
+const Input = ({
+  title,
+  secondary,
+  primary,
+  danger,
+  loading,
+  disabled,
+  onPress,
+}) => {
   const getBcgColor = () => {
     if (disabled) {
       return colors.grey;
@@ -22,6 +30,7 @@ const Input = ({title, secondary, primary, danger, loading, disabled}) => {
   return (
     <TouchableOpacity
       disabled={disabled}
+      onPress={onPress}
       style={[styles.wrapper, {backgroundColor: getBcgColor()}]}>
       <View style={[styles.loaderSection]}>
         {loading && (

@@ -7,7 +7,7 @@ import styles from './styles';
 import {LOGIN} from '../../constants/routeNames';
 import {useNavigation} from '@react-navigation/native';
 
-const RegisterComponent = () => {
+const RegisterComponent = ({onSubmit, onChange, form, errors}) => {
   const {navigate} = useNavigation();
   return (
     // eslint-disable-next-line react-native/no-inline-styles
@@ -24,28 +24,52 @@ const RegisterComponent = () => {
             label="Username"
             iconPosition="right"
             placeholder="Enter Username"
+            onChangeText={value => {
+              onChange({name: 'username', value});
+            }}
+            error={errors.username}
           />
           <Input
             label="First Name"
             iconPosition="right"
             placeholder="Enter First Name"
+            onChangeText={value => {
+              onChange({name: 'firstName', value});
+            }}
+            error={errors.firstName}
           />
           <Input
             label="Last Name"
             iconPosition="right"
             placeholder="Enter Last Name"
+            onChangeText={value => {
+              onChange({name: 'lastName', value});
+            }}
+            error={errors.lastName}
           />
-          <Input label="Email" iconPosition="right" placeholder="Enter Email" />
+          <Input
+            label="Email"
+            iconPosition="right"
+            placeholder="Enter Email"
+            onChangeText={value => {
+              onChange({name: 'email', value});
+            }}
+            error={errors.email}
+          />
           <Input
             label="Password"
             icon={<Text>SHOW</Text>}
             iconPosition="right"
             secureTextEntry={true}
             placeholder="Enter Password"
+            onChangeText={value => {
+              onChange({name: 'password', value});
+            }}
+            error={errors.password}
           />
         </View>
       </View>
-      <CustomButton primary title="Submit" />
+      <CustomButton onPress={onSubmit} primary title="Submit" />
       <View style={styles.createSection}>
         <Text style={styles.infoText}>Already have an account?</Text>
         <TouchableOpacity
